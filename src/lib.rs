@@ -440,7 +440,7 @@ where
     // }
     actix_service::always_ready!();
 
-    fn call(&mut self, req: ServiceRequest) -> Self::Future {
+    fn call(&self, req: ServiceRequest) -> Self::Future {
         LoggerResponse {
             fut: self.service.call(req),
             time: SystemTime::now(),
